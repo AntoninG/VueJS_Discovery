@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Getting Started</title>
+</head>
+<body>
+<section id="app">
+	<h1 v-bind:title="date_loaded">{{ message }}</h1>
+	<div>
+		<button v-if="!seen" v-on:click="seen = !seen">Look at me ;)</button>
+		<button v-if="seen" v-on:click="seen = !seen">You dare!</button>
+		<p v-if="seen">Hello my dear voyeur. Am I embarrassing you?</p>
+	</div>
+
+	<div>
+		<h2>Make your choice</h2>
+		<li v-for="child in children">
+			{{ child.name }} : {{ child.age }}
+		</li>
+	</div>
+
+	<div>
+		<h3>Enter your preference</h3>
+		<input v-model="preference"> <button v-on:click="reversePreference">Turn this bitch</button>
+	</div>
+
+	<div>
+		<h4>Your cart :</h4>
+		<ol>
+			<cart-object
+				v-for="item in cart"
+				v-bind:object="item">
+
+			</cart-object>
+		</ol>
+	</div>
+</section>
+<script src="https://unpkg.com/vue"></script>
+<script src="library.js" type="text/javascript"></script>
+</body>
+</html>
